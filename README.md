@@ -1,84 +1,71 @@
-# Turborepo starter
+# 🧬 Baynext Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+Ce monorepo gère :
 
-## Using this example
+- `apps/homepage` → landing page baynext.tech (Next.js App Router + shadcn/ui + newsletter + Resend + PostgreSQL)
+- `apps/console` → UI future pour la console SaaS (Nexbay)
+- `drizzle/` → schéma & migrations
+- `packages/` → composants ou configuration partagés
 
-Run the following command:
+## 🔧 Setup rapide
 
-```sh
-npx create-turbo@latest
+```bash
+# Cloner le repo
+git clone git@github.com:<ton-org>/baynext-monorepo.git
+cd baynext-monorepo
+
+# Installer les dépendances
+npm install
 ```
 
-## What's inside?
+## 📦 Structure
 
-This Turborepo includes the following packages/apps:
+```bash
+apps/
+  homepage/      # landing page baynext.tech
+  console/       # future interface utilisateur Nexbay
 
-### Apps and Packages
+packages/
+  ui/            # composants partagés shadcn (optionnel)
+  config/        # configs tsconfig, tailwind, eslint (optionnel)
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+drizzle/         # schéma + migrations
+.env             # variables d'environnement globales
 ```
 
-### Develop
+## 🛠️ Variables d'environnement (à placer dans `.env`)
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
+```bash
+DATABASE_URL=postgresql://... # fourni par Neon
+RESEND_API_KEY=your_resend_key
 ```
 
-### Remote Caching
+## 🚀 Démarrage
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```bash
+# Lancer l'app homepage
+cd apps/homepage
+npm run dev
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 🧱 Migrations Drizzle
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+```bash
+# Init drizzle (si pas encore fait)
+npx drizzle-kit generate:pg
 
+# Push vers la base Neon
+npx drizzle-kit push
 ```
-npx turbo link
-```
 
-## Useful Links
+## 📨 Email (production)
+- `contact@baynext.tech` → réception via ImprovMX
+- `leo@baynext.tech` → envoi via Zoho SMTP (ou autre SMTP provider)
 
-Learn more about the power of Turborepo:
+## 🧪 Déploiement Vercel
+- Ajouter les apps `homepage` et `console`
+- Définir les variables d’environnement dans les paramètres du projet Vercel
 
-- [Tasks](https://turbo.build/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/docs/reference/command-line-reference)
+---
+
+✨ Construis, déploie et scale ton outil marketing analytique avec Baynext.
