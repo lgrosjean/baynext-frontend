@@ -7,7 +7,7 @@
         "@workspace/drizzle/*": ["../../.drizzle/*"],
       }
     },
-    "include": ["src"],
+    "include": ["src", "drizzle.server.ts"],
     "exclude": ["node_modules", "dist"]
   }
   

@@ -8,13 +8,71 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #f739e8;
-  --color-secondary: #4ac5fe;
   --color-tertiary: #13001e;
-  --color-accent: #00FFF7;
-  --color-accent-2: #fd9b11;
+
+  --color-neonPink-50: #ffe6ff;
+  --color-neonPink-100: #ffb3ff;
+  --color-neonPink-200: #ff80ff;
+  --color-neonPink-300: #ff4dff;
+  --color-neonPink-400: #ff1aff;
+  --color-neonPink-500: #FF40FF;
+  --color-neonPink-600: #cc00cc;
+  --color-neonPink-700: #990099;
+  --color-neonPink-800: #660066;
+  --color-neonPink-900: #330033;
+  --color-neonPink-950: #190019;
+
+  --color-neonBlue-50: #e0faff;
+  --color-neonBlue-100: #b3f2ff;
+  --color-neonBlue-200: #80e8ff;
+  --color-neonBlue-300: #4ddfff;
+  --color-neonBlue-400: #1ad5ff;
+  --color-neonBlue-500: #40DFFF;
+  --color-neonBlue-600: #00b3cc;
+  --color-neonBlue-700: #008599;
+  --color-neonBlue-800: #005866;
+  --color-neonBlue-900: #002c33;
+  --color-neonBlue-950: #00161a;
+
+
+  --color-neonOrange-50: #fff0e6;
+  --color-neonOrange-100: #ffdab3;
+  --color-neonOrange-200: #ffc280;
+  --color-neonOrange-300: #ffa94d;
+  --color-neonOrange-400: #ff910d;
+  --color-neonOrange-500: #FF7A00;
+  --color-neonOrange-600: #cc6100;
+  --color-neonOrange-700: #994800;
+  --color-neonOrange-800: #663000;
+  --color-neonOrange-900: #331800;
+  --color-neonOrange-950: #1a0c00;
+
+  --color-neonPurple-50: #ece8f2;
+  --color-neonPurple-100: #d0c6e0;
+  --color-neonPurple-200: #b3a3cc;
+  --color-neonPurple-300: #9580b8;
+  --color-neonPurple-400: #785ea3;
+  --color-neonPurple-500: #593c8f;
+  --color-neonPurple-600: #452e70;
+  --color-neonPurple-700: #321f52;
+  --color-neonPurple-800: #1e1133;
+  --color-neonPurple-900: #120A20;
+  --color-neonPurple-950: #080510;
+
+  --color-neonCyan-50: #e5feff;
+  --color-neonCyan-100: #ccfdff;
+  --color-neonCyan-200: #99faff;
+  --color-neonCyan-300: #66f8ff;
+  --color-neonCyan-400: #33f6ff;
+  --color-neonCyan-500: #99F6FF;
+  --color-neonCyan-600: #00c4cc;
+  --color-neonCyan-700: #009399;
+  --color-neonCyan-800: #006266;
+  --color-neonCyan-900: #003133;
+  --color-neonCyan-950: #00181a;
+
   --spacing-sidebar-width: 230px;
-  --spacing-header-height: calc(3.5rem);
+  --spacing-header-height: 3.5rem;
 }
 
 :root {
@@ -24,13 +82,13 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #f739e8;
+  --primary: oklch(0.205 0 0); 
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #4ac5fe; 
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: #fd9b11; 
+  --accent: oklch(0.985 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -95,13 +153,13 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  /* --color-primary: var(--primary); */
+  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  /* --color-secondary: var(--secondary); */
+  --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  /* --color-accent: var(--accent); */
+  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -125,6 +183,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --header-height: var(--spacing-header-height);
 }
 
 @layer base {
@@ -132,6 +191,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground
   }
 }

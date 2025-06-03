@@ -10,8 +10,12 @@
     "db:push": "drizzle-kit push"
   },
   "devDependencies": {
+    "@neondatabase/serverless": "^1.0.0",
+    "@tailwindcss/postcss": "^4.1.4",
     "drizzle-kit": "^0.30.6",
+    "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.4",
     "turbo": "^2.5.0",
     "typescript": "5.8.2"
   },

@@ -9,13 +9,19 @@
   },
   "exports": {
     ".": "./src/db.ts",
-    "schema": "./src/schema.ts"
+    "./schema": "./src/schema.ts",
+    "./client": "./drizzle.server.ts"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.0"
+    "@neondatabase/serverless": "^1.0.0",
+    "drizzle-orm": "^0.41.0",
+    "postgres": "^3.4.5",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
+    "@types/ws": "^8.18.1",
     "@workspace/typescript-config": "*",
+    "drizzle-kit": "^0.30.6",
     "typescript": "5.8.2"
   }
 }

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
@@ -40,8 +41,18 @@ function BreadcrumbLink({
 }) {
   const Comp = asChild ? Slot : "a"
 
+  if (asChild) {
+
   return (
-    <Comp
+    <Slot
+      data-slot="breadcrumb-link"
+      className={cn("hover:text-foreground transition-colors", className)}
+      {...props}
+    />
+  )
+}
+  return (
+    <Link
       data-slot="breadcrumb-link"
       className={cn("hover:text-foreground transition-colors", className)}
       {...props}
